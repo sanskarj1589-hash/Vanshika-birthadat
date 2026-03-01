@@ -15,18 +15,24 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
     text-align:center;
     color:white;
     background: linear-gradient(-45deg,#ff9ebc,#ff6f91,#ff85a2,#ffb3c6);
     background-size:400% 400%;
     animation: gradientMove 10s ease infinite;
     font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding:40px 0;
 }
 
 @keyframes gradientMove{
@@ -47,6 +53,7 @@ body{
     backdrop-filter: blur(20px);
     box-shadow:0 0 60px rgba(255,105,180,0.7);
     animation: fadeIn 2s ease forwards;
+    margin:40px 0;
 }
 
 @keyframes fadeIn{
@@ -104,7 +111,7 @@ button:hover{
     position:fixed;
     bottom:-20px;
     font-size:22px;
-    animation: floatUp 6s linear infinite;
+    animation: floatUp linear infinite;
     opacity:0.35;
     pointer-events:none;
     z-index:1;
@@ -188,8 +195,13 @@ setInterval(()=>{
 /* Confetti */
 const canvas=document.getElementById("confetti");
 const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+
+function resizeCanvas(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize",resizeCanvas);
 
 let confetti=[];
 
