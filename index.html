@@ -21,84 +21,115 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:white;
-    overflow:hidden;
-    background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center/cover;
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday In Advance Vanshika 🩷</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* Dark overlay */
-body::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.55);
-    backdrop-filter: blur(3px);
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+    background: linear-gradient(-45deg,#ff9ebc,#ff6f91,#ff85a2,#ffb3c6);
+    background-size:400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
 /* Glass Card */
 .container{
     position:relative;
     width:90%;
-    max-width:500px;
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.1);
-    backdrop-filter: blur(15px);
-    box-shadow:0 0 40px rgba(255,105,180,0.5);
-    animation: float 6s ease-in-out infinite;
+    max-width:520px;
+    padding:35px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    box-shadow:0 0 50px rgba(255,105,180,0.6);
+    animation: fadeIn 2s ease forwards;
 }
 
-/* Floating Animation */
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 h2{
-    font-size:28px;
+    font-size:30px;
     margin-bottom:15px;
-    animation: glow 2s infinite alternate;
-}
-
-/* Glow effect */
-@keyframes glow{
-    from{text-shadow:0 0 10px #ff99cc;}
-    to{text-shadow:0 0 25px #ff4da6;}
+    font-weight:600;
 }
 
 .message{
     font-size:15px;
-    line-height:1.6;
-    margin-bottom:20px;
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
 button{
-    padding:12px 28px;
+    padding:14px 30px;
     border:none;
-    border-radius:30px;
-    background:linear-gradient(45deg,#ff4da6,#ff99cc);
-    color:white;
+    border-radius:50px;
+    background:white;
+    color:#ff4f81;
     font-weight:bold;
     cursor:pointer;
     transition:0.4s;
 }
 
 button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px #ff4da6;
+    transform:scale(1.12);
+    box-shadow:0 0 20px white;
 }
 
 .hidden{
     display:none;
-    margin-top:20px;
+    margin-top:25px;
     font-size:14px;
-    animation: fadeIn 1.5s ease forwards;
+    line-height:1.7;
+    animation: reveal 1.8s ease forwards;
 }
 
-@keyframes fadeIn{
+@keyframes reveal{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(100vh); opacity:1;}
+    100%{transform:translateY(-10vh); opacity:0;}
 }
 
 canvas{
@@ -115,46 +146,33 @@ canvas{
 <canvas id="confetti"></canvas>
 
 <div class="container">
-    <h2>Hey Vanshika 💖</h2>
+<h2>Hey Vanshika 🩷</h2>
 
-    <div class="message">
-        Happy Birthday in Advance 🎂✨ <br><br>
-        I know baba apka birthday 12 days baad hai...
-        par phir bhi wish karne me kya jata hai 🥹
-    </div>
+<div class="message">
+Happy Birthday in Advance 🎂✨ <br><br>
+I know baba apka birthday aaj se 12 days baad hai per phir bhi wish karne me ke jata hai...
+</div>
 
-    <button onclick="showSecret()">Acha tumko ek raaj ki baat batata hun 🤫</button>
+<button onclick="showSecret()">Acha tumko ek raaj ki baat batata hun 🤫</button>
 
-    <div class="hidden" id="secret">
-        <p>
-        Aaj se <b>16 years, 11 months, 16 days</b> pehle
-        ek ladki ne duniya me entry maari thi ✨
-        </p>
+<div class="hidden" id="secret">
+<p>
+aaj se <b>16 years, 11 months, 16 days</b> din phele ek ladki ke jaan me jaan aayi thi....
+and jo kuch saal baad dusron ke jaan bachaegi apne sapne pure karegi and khul ke apne life ko enjoy karegi
+(bhavishyavani by gyaani baba 🥹 hope so aisa hi ho)
+</p>
 
-        <p>
-        Jo future me dusron ki jaan bachayegi,
-        apne sapne pure karegi,
-        aur khul ke apni life enjoy karegi 💫
-        </p>
+<p>
+tum lead karo society ko...tum itna aage jao jaha pahunchne ki kisi ki aukat na ho...
+hamesha khush raho yrr..
+and sorry yrr mai kabhi kabhi tumpe ghussa kar deta hun...
+but I promise age se mai full try karunga ki mere wajah se kabhi tumahre face pe sadness na aaye
+</p>
 
-        <p>
-        (Bhavishyavani by Gyaani Baba 🥹)
-        </p>
-
-        <p>
-        Tum itna aage jao jaha pahunchne ki kisi ki aukat na ho 😌🔥
-        </p>
-
-        <p>
-        Aur sorry yrr kabhi kabhi gussa kar deta hun...
-        but promise aage se try karunga ki tum kabhi sad na ho ❤️
-        </p>
-
-        <p>
-        Hehe bahut tarriff ho gayi 😌
-        ab so jao chup chap 🥹💖
-        </p>
-    </div>
+<p>
+Hehe bahut tarriff kardi Maine ab so jao chup chap 🥹...
+</p>
+</div>
 </div>
 
 <script>
@@ -162,6 +180,17 @@ function showSecret(){
     document.getElementById("secret").style.display="block";
     launchConfetti();
 }
+
+/* Floating Hearts Generator */
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="🩷";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},500);
 
 /* Confetti */
 const canvas=document.getElementById("confetti");
@@ -177,7 +206,6 @@ function launchConfetti(){
             x:Math.random()*canvas.width,
             y:Math.random()*canvas.height-canvas.height,
             r:Math.random()*6+2,
-            d:Math.random()*50,
             color:"hsl("+Math.random()*360+",100%,60%)"
         });
     }
