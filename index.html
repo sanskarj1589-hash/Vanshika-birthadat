@@ -14,20 +14,14 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height:100vh;
+html, body{
+    width:100%;
+    min-height:100%;
     font-family:'Poppins',sans-serif;
-    text-align:center;
-    color:white;
     background: linear-gradient(-45deg,#ff9ebc,#ff6f91,#ff85a2,#ffb3c6);
     background-size:400% 400%;
     animation: gradientMove 10s ease infinite;
     overflow-x:hidden;
-    padding:60px 15px;
 }
 
 @keyframes gradientMove{
@@ -36,7 +30,11 @@ body{
     100%{background-position:0% 50%;}
 }
 
-/* Glass Card */
+.wrapper{
+    width:100%;
+    padding:60px 15px;
+}
+
 .container{
     max-width:520px;
     margin:0 auto;
@@ -45,7 +43,9 @@ body{
     background:rgba(255,255,255,0.15);
     backdrop-filter: blur(20px);
     box-shadow:0 0 60px rgba(255,105,180,0.7);
-    animation: fadeIn 1.8s ease forwards;
+    color:white;
+    text-align:center;
+    animation: fadeIn 1.5s ease forwards;
 }
 
 @keyframes fadeIn{
@@ -79,7 +79,7 @@ button{
 }
 
 button:hover{
-    transform:scale(1.1);
+    transform:scale(1.08);
     box-shadow:0 0 25px white;
 }
 
@@ -88,12 +88,6 @@ button:hover{
     margin-top:30px;
     font-size:15px;
     line-height:2;
-    animation: reveal 1.5s ease forwards;
-}
-
-@keyframes reveal{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
 }
 
 /* Floating Hearts */
@@ -104,6 +98,7 @@ button:hover{
     animation: floatUp linear infinite;
     opacity:0.3;
     pointer-events:none;
+    z-index:1;
 }
 
 @keyframes floatUp{
@@ -111,12 +106,13 @@ button:hover{
     100%{transform:translateY(-110vh); opacity:0;}
 }
 
-/* Confetti */
+/* Confetti Canvas */
 canvas{
     position:fixed;
     top:0;
     left:0;
     pointer-events:none;
+    z-index:0;
 }
 </style>
 </head>
@@ -125,6 +121,7 @@ canvas{
 
 <canvas id="confetti"></canvas>
 
+<div class="wrapper">
 <div class="container">
 
 <h2>Hey Vanshika 🩷</h2>
@@ -160,6 +157,7 @@ but I promise age se mai full try karunga ki mere wajah se kabhi tumahre face pe
 Hehe bahut tarriff kardi Maine ab so jao chup chap 🥹...
 </p>
 
+</div>
 </div>
 </div>
 
@@ -212,7 +210,6 @@ function draw(){
         ctx.fillStyle=c.color;
         ctx.fillRect(c.x,c.y,c.r,c.r);
         c.y+=3;
-        if(c.y>canvas.height) c.y=-10;
     });
     requestAnimationFrame(draw);
 }
